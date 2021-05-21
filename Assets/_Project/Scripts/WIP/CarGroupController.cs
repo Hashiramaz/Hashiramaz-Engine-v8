@@ -13,7 +13,10 @@ public class CarGroupController : MonoBehaviour
     public SpectatorCar spectatorCarPrefab;
 
     public SpawnArea spawnArea;
-
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.B))
+            SpawnRandomSpectator();
+    }
     private void OnEnable()
     {
 
@@ -54,4 +57,13 @@ public class CarGroupController : MonoBehaviour
             car.SetMessage(message);
         }
     }
+
+    public void SpawnRandomSpectator()
+    {
+        string randomUsername = Random.Range(0,1000).ToString();
+        string randomMessage = Random.Range(0,1000).ToString();
+        SpawnSpectatorCar(randomUsername,randomMessage);
+    }
+
+    
 }
