@@ -15,8 +15,23 @@ public class CameraControllerV3 : MonoBehaviour
     public bool randomCamerasRuning;
     public float timeToWaitBetweenCameras;
     public LeanToggle randomCamerasButton;
+    public Transform CurrentEventCamera
+    {
+        get
+        {
+            return cameras[currentCameraSelected].transform;
+        }
+    }
 
+    private void OnEnable()
+    {
+        GlobalEventSystem.onGetMainActiveCamera += GetCurrentCameraTransform;
+    }
 
+    private void OnDisable()
+    {
+        GlobalEventSystem.onGetMainActiveCamera -= GetCurrentCameraTransform;
+    }
     public void SetRenderCamera(Camera camera)
     {
         cameraCanva.worldCamera = camera;
@@ -109,5 +124,14 @@ public class CameraControllerV3 : MonoBehaviour
         blackcamera.TurnOn();
         StopRandomCameras();
     }
+    public Transform GetCurrentCameraTransform()
+    {
+        return CurrentEventCamera;
+    } 
 
+    
+    public void SetRandomTimeBetweenCameras(float time)
+    {
+        timeToWaitBetweenCameras = time;
+    }
 }

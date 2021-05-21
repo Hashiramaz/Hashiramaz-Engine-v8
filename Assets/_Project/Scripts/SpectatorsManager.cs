@@ -16,6 +16,7 @@ public class SpectatorsManager : MonoBehaviourSingleton<SpectatorsManager>
 
     public int spectatorsLimit = 100;
 
+    public bool randomRotation = true;
     #region INITIALIZE TWITCH CHAT
     private void Start()
     {
@@ -58,12 +59,12 @@ public class SpectatorsManager : MonoBehaviourSingleton<SpectatorsManager>
             return;
 
         Debug.Log("Reward Received: " + rewardData.CustomRewardId + " from " + rewardData.User.DisplayName);
-        
+
         if (UserIsOnParty(rewardData.User))
             return;
 
-        
-        if(spectatorsSpawned.Count >= spectatorsLimit)
+
+        if (spectatorsSpawned.Count >= spectatorsLimit)
         {
             // Spawn Blink Spectator
             //FUTURE
@@ -77,21 +78,35 @@ public class SpectatorsManager : MonoBehaviourSingleton<SpectatorsManager>
 
     public void SpawnNewSpectator()
     {
-        Vector3 randomRotation = new Vector3(0,Random.Range(0,360),0);
-        SpectatorCharacter characterSpawned = Instantiate(spectatorCharPrefab, GetRandomSpawnArea().GetRandomPoint(),Quaternion.Euler(randomRotation));
+        Vector3 randomRotationAngle;
+        if (randomRotation)
+        {
+            randomRotationAngle = new Vector3(0, Random.Range(0, 360), 0);
+        }
+        else
+        {
+            randomRotationAngle = new Vector3(0, 0, 0);
+        }
+        SpectatorCharacter characterSpawned = Instantiate(spectatorCharPrefab, GetRandomSpawnArea().GetRandomPoint(), Quaternion.Euler(randomRotationAngle));
 
         characterSpawned.ActivateCharacter();
     }
 
     public void SpawnNewSpectator(TwitchUser twitchuser)
     {
-        Vector3 randomRotation = new Vector3(0,Random.Range(0,360),0);
-       
-        SpectatorCharacter characterSpawned = Instantiate(spectatorCharPrefab, GetRandomSpawnArea().GetRandomPoint(),Quaternion.Euler(randomRotation));
+        Vector3 randomRotationAngle;
+        if (randomRotation)
+        {
+            randomRotationAngle = new Vector3(0, Random.Range(0, 360), 0);
+        }
+        else
+        {
+            randomRotationAngle = new Vector3(0, 0, 0);
+        }
+
+        SpectatorCharacter characterSpawned = Instantiate(spectatorCharPrefab, GetRandomSpawnArea().GetRandomPoint(), Quaternion.Euler(randomRotationAngle));
 
         characterSpawned.SetSpectatorData(twitchuser);
-
-        
 
         characterSpawned.ActivateCharacter();
 
@@ -108,7 +123,7 @@ public class SpectatorsManager : MonoBehaviourSingleton<SpectatorsManager>
 
     public void AddNewSpectator(TwitchUser _user, SpectatorCharacter _character)
     {
-  
+
         Spectator spectator = new Spectator(_user, _character);
 
         spectatorsSpawned.Add(spectator);
@@ -221,7 +236,7 @@ public class SpectatorsManager : MonoBehaviourSingleton<SpectatorsManager>
 
                 // message.Remove(emoteInstance.startIndex,emoteInstance.endIndex);
                 // message.Insert(emoteInstance.startIndex,charToreplace.ToString());
-                
+
                 StartTrySpawnEmote(emote, emoteName);
 
                 //  Debug.Log("Message Contains Emote: " + emotecached.emoteName);
@@ -259,7 +274,7 @@ public class SpectatorsManager : MonoBehaviourSingleton<SpectatorsManager>
     IEnumerator TrySpawnEmoteRoutine(ChatterEmote emote, string emoteName)
     {
         yield return null;
-        
+
         EmoteCacheData emotecached = CachedEmotesManager.Instance.TryGetEmoteOrAdd(emoteName, emote.id);
 
         EmotesSpawnManager.Instance.SpawnEmote(emotecached);
@@ -270,7 +285,7 @@ public class SpectatorsManager : MonoBehaviourSingleton<SpectatorsManager>
         if (rewardData.CustomRewardId != rewardIdDance)
             return;
 
-        if(!UserIsOnParty(rewardData.User))
+        if (!UserIsOnParty(rewardData.User))
             return;
 
         Spectator spectator = GetSpectator(rewardData.User);

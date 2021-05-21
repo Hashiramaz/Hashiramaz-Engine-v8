@@ -27,18 +27,7 @@ public class SpectatorCharacter : MonoBehaviour
 
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            ChooseDance(0);
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ChooseDance(1);
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            ChooseDance(2);
-        }
+     
     }
 
 
@@ -48,7 +37,7 @@ public class SpectatorCharacter : MonoBehaviour
         //characterNameText.text = twitchUser.Username;
         textUserPro.text = twitchUser.DisplayName;
     }
-    public void ActivateCharacter()
+    public virtual void ActivateCharacter()
     {
         characterToggle.TurnOn();
         
@@ -63,7 +52,7 @@ public class SpectatorCharacter : MonoBehaviour
         characterToggle.TurnOff();
     }
 
-    private void SetFallGuyRandomColor()
+    public void SetFallGuyRandomColor()
     {
         int randomIndex = UnityEngine.Random.Range(0,textureList.Length);
         
