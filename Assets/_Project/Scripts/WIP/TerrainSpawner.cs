@@ -13,4 +13,18 @@ public class TerrainSpawner : MonoBehaviourSingleton<TerrainSpawner>
 
         Instantiate(terrainToSpawn,transform.position,transform.rotation);
     }
+
+    public List<TerrainGroup> terrainGroups;
+
+    public List<int> activeTerrainGroups;
+}
+
+[System.Serializable]
+public class TerrainGroup{
+public List<MoveTerrain> terrainsPrefab;
+
+public MoveTerrain GetRandomTerrain()
+{
+    return terrainsPrefab.PickRandomOne();
+}
 }

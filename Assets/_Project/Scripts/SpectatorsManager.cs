@@ -7,8 +7,8 @@ using TwitchChatConnect.Client;
 public class SpectatorsManager : MonoBehaviourSingleton<SpectatorsManager>
 {
     public SpawnArea spawnArea;
-    public SpawnArea[] spawnAreas;
-
+    public List<SpawnArea> spawnAreas;
+    public bool randomSpawnArea = true;
     public SpectatorCharacter spectatorCharPrefab;
 
     public string rewardId;
@@ -87,7 +87,7 @@ public class SpectatorsManager : MonoBehaviourSingleton<SpectatorsManager>
         {
             randomRotationAngle = new Vector3(0, 0, 0);
         }
-        SpectatorCharacter characterSpawned = Instantiate(spectatorCharPrefab, GetRandomSpawnArea().GetRandomPoint(), Quaternion.Euler(randomRotationAngle));
+        SpectatorCharacter characterSpawned = Instantiate(spectatorCharPrefab, GetSpawnArea().GetRandomPoint(), Quaternion.Euler(randomRotationAngle));
 
         characterSpawned.ActivateCharacter();
     }
@@ -104,7 +104,7 @@ public class SpectatorsManager : MonoBehaviourSingleton<SpectatorsManager>
             randomRotationAngle = new Vector3(0, 0, 0);
         }
 
-        SpectatorCharacter characterSpawned = Instantiate(spectatorCharPrefab, GetRandomSpawnArea().GetRandomPoint(), Quaternion.Euler(randomRotationAngle));
+        SpectatorCharacter characterSpawned = Instantiate(spectatorCharPrefab, GetSpawnArea().GetRandomPoint(), Quaternion.Euler(randomRotationAngle));
 
         characterSpawned.SetSpectatorData(twitchuser);
 
@@ -342,9 +342,30 @@ public class SpectatorsManager : MonoBehaviourSingleton<SpectatorsManager>
     #endregion
 
     #region  SpawnAreaThings
+    public SpawnArea GetSpawnArea()
+    {
+        if(randomSpawnArea)
+        return GetRandomSpawnArea();
+        else
+        return GetNextSpawnArea();
+    }
     public SpawnArea GetRandomSpawnArea()
     {
-        return spawnAreas[Random.Range(0, spawnAreas.Length)];
+        return spawnAreas[Random.Range(0, spawnAreas.Count)];
+    }
+    public SpawnArea GetNextSpawnArea()
+    {
+        
+        SpawnArea nextSpawnArea;
+        if(spawnAreas.Count > 0){
+
+            nextSpawnArea = spawnAreas[0];
+            spawnAreas.RemoveAt(0);
+        }
+        else
+            nextSpawnArea = spawnArea;
+        
+        return nextSpawnArea;
     }
 
     #endregion
