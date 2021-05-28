@@ -8,8 +8,12 @@ public class EmotesSpawnManager : MonoBehaviourSingleton<EmotesSpawnManager>
     public EmoteBehaviour emotePrefab;
 
     public SpawnArea spawnArea;
+    public List<SpawnArea> spawnAreas;
 
     public bool blockEmotes;
+
+    public bool attachToParent;
+    public Transform parentToAttatch;
     private void Update() {
         if(Input.GetKeyDown(KeyCode.Alpha5))
         {
@@ -19,7 +23,7 @@ public class EmotesSpawnManager : MonoBehaviourSingleton<EmotesSpawnManager>
 
     public void SpawnEmote()
     {
-        EmoteBehaviour emoteSpawned = Instantiate(emotePrefab,spawnArea.GetRandomPoint(),transform.rotation);
+        EmoteBehaviour emoteSpawned = Instantiate(emotePrefab,GetRandomSpawnArea().GetRandomPoint(),transform.rotation);
 
         emoteSpawned.StartEmoteCycle();
     }
@@ -29,7 +33,10 @@ public class EmotesSpawnManager : MonoBehaviourSingleton<EmotesSpawnManager>
         if(blockEmotes)
             return;
         
-        EmoteBehaviour emoteSpawned = Instantiate(emotePrefab,spawnArea.GetRandomPoint(),transform.rotation);
+        EmoteBehaviour emoteSpawned = Instantiate(emotePrefab,GetRandomSpawnArea().GetRandomPoint(),transform.rotation);
+        
+        if(attachToParent)
+            emoteSpawned.transform.SetParent(parentToAttatch);
         //EmoteBehaviour emoteSpawned = LeanPool.Spawn(emotePrefab,spawnArea.GetRandomPoint(),transform.rotation);
         emoteSpawned.SetData(emoteData);
 
@@ -39,5 +46,14 @@ public class EmotesSpawnManager : MonoBehaviourSingleton<EmotesSpawnManager>
     public void SetBlockEmotesState(bool state)
     {
         blockEmotes = state;
+    }
+
+    public bool randomSpawnPoint;
+    public SpawnArea GetRandomSpawnArea()
+    {
+        if(randomSpawnPoint)
+        return spawnAreas.PickRandomOne();
+        else return spawnArea;
+
     }
 }
