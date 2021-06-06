@@ -51,10 +51,10 @@ public class SpaceShipsManager : MonoBehaviour
    // Update is called once per frame
     void Update()
     {
-        // if(Input.GetKeyDown(KeyCode.P))
-        // {
-        //     SpawnSpaceship();
-        // }
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            SpawnSpaceship();
+        }
         // if(Input.GetKeyDown(KeyCode.M))
         // {
         //     StopMixer();    
@@ -65,7 +65,7 @@ public class SpaceShipsManager : MonoBehaviour
         // }
 
 
-        UpdateMixerInputs();
+       // UpdateMixerInputs();
     }
 
 
@@ -83,7 +83,7 @@ public class SpaceShipsManager : MonoBehaviour
     public void SpawnSpaceship()
     {
         SpaceShip spaceship = Instantiate(spaceShipPrefab);
-        
+        //spaceship.transform.position = gameObject.transform.position;
         spawnedSpacedships.Add(spaceship);
     }
     
