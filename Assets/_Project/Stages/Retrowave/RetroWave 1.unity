@@ -747,6 +747,8 @@ MonoBehaviour:
     - {fileID: 1047265242, guid: 95663589720fda449af6ba4f97694110, type: 3}
   - terrainsPrefab:
     - {fileID: 1047265242, guid: b2058fa04f199254293ec094292d6f6a, type: 3}
+  - terrainsPrefab:
+    - {fileID: 1047265242, guid: c72054ec2142e8349822b25d5ad482ea, type: 3}
   activeTerrainGroups: 
 --- !u!33 &36710374
 MeshFilter:
