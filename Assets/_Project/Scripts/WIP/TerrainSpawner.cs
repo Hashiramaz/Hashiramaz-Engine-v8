@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class TerrainSpawner : MonoBehaviourSingleton<TerrainSpawner>
 {
+
+    private void OnEnable() {
+        GlobalEventSystem.onSelectTerrain += ActivateTerrainGroup;
+        GlobalEventSystem.onDeselectTerrain += RemoveTerrainGroup;
+
+    }
+
+    private void OnDisable() {
+        GlobalEventSystem.onSelectTerrain -= ActivateTerrainGroup;
+        GlobalEventSystem.onDeselectTerrain -= RemoveTerrainGroup;
+        
+    }
     public List<MoveTerrain> terrainsPrefab;
 
     public bool pickFromTerrainGroup;

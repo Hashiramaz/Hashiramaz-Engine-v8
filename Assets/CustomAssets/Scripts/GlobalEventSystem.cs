@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomCamera1;
     public static void StartCustomCamera1()
     {
-        if(onStartCustomCamera1 != null)
+        if (onStartCustomCamera1 != null)
         {
             onStartCustomCamera1();
         }
@@ -20,7 +21,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomCamera2;
     public static void StartCustomCamera2()
     {
-        if(onStartCustomCamera2 != null)
+        if (onStartCustomCamera2 != null)
         {
             onStartCustomCamera2();
         }
@@ -28,7 +29,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomCamera3;
     public static void StartCustomCamera3()
     {
-        if(onStartCustomCamera3 != null)
+        if (onStartCustomCamera3 != null)
         {
             onStartCustomCamera3();
         }
@@ -36,7 +37,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomCamera4;
     public static void StartCustomCamera4()
     {
-        if(onStartCustomCamera4 != null)
+        if (onStartCustomCamera4 != null)
         {
             onStartCustomCamera4();
         }
@@ -44,7 +45,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomCamera5;
     public static void StartCustomCamera5()
     {
-        if(onStartCustomCamera5 != null)
+        if (onStartCustomCamera5 != null)
         {
             onStartCustomCamera5();
         }
@@ -52,7 +53,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomCamera6;
     public static void StartCustomCamera6()
     {
-        if(onStartCustomCamera6 != null)
+        if (onStartCustomCamera6 != null)
         {
             onStartCustomCamera6();
         }
@@ -60,7 +61,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomCamera7;
     public static void StartCustomCamera7()
     {
-        if(onStartCustomCamera7 != null)
+        if (onStartCustomCamera7 != null)
         {
             onStartCustomCamera7();
         }
@@ -68,7 +69,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomCamera8;
     public static void StartCustomCamera8()
     {
-        if(onStartCustomCamera8 != null)
+        if (onStartCustomCamera8 != null)
         {
             onStartCustomCamera8();
         }
@@ -76,7 +77,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomCamera9;
     public static void StartCustomCamera9()
     {
-        if(onStartCustomCamera9 != null)
+        if (onStartCustomCamera9 != null)
         {
             onStartCustomCamera9();
         }
@@ -84,7 +85,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartRandomCameras;
     public static void StartRandomCameras()
     {
-        if(onStartRandomCameras != null)
+        if (onStartRandomCameras != null)
         {
             onStartRandomCameras();
         }
@@ -92,7 +93,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStopRandomCameras;
     public static void StopRandomCameras()
     {
-        if(onStopRandomCameras != null)
+        if (onStopRandomCameras != null)
         {
             onStopRandomCameras();
         }
@@ -101,7 +102,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartTurnOnLights;
     public static void StartTurnOnLights()
     {
-        if(onStartTurnOnLights != null)
+        if (onStartTurnOnLights != null)
         {
             onStartTurnOnLights();
         }
@@ -109,7 +110,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartTurnOffLights;
     public static void StartTurnOffLights()
     {
-        if(onStartTurnOffLights != null)
+        if (onStartTurnOffLights != null)
         {
             onStartTurnOffLights();
         }
@@ -117,7 +118,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onSetLightsPattern1;
     public static void SetLightsPattern1()
     {
-        if(onSetLightsPattern1 != null)
+        if (onSetLightsPattern1 != null)
         {
             onSetLightsPattern1();
         }
@@ -125,7 +126,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onSetLightsPattern2;
     public static void SetLightsPattern2()
     {
-        if(onSetLightsPattern2 != null)
+        if (onSetLightsPattern2 != null)
         {
             onSetLightsPattern2();
         }
@@ -133,16 +134,16 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onSetLightsPattern3;
     public static void SetLightsPattern3()
     {
-        if(onSetLightsPattern3 != null)
+        if (onSetLightsPattern3 != null)
         {
             onSetLightsPattern3();
         }
     }
- 
+
     public static event ShowEvent onToogleBackgroundKeyboard;
     public static void ToogleBackgroundKeyboard()
     {
-        if(onToogleBackgroundKeyboard != null)
+        if (onToogleBackgroundKeyboard != null)
         {
             onToogleBackgroundKeyboard();
         }
@@ -150,7 +151,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomEvent1;
     public static void StartCustomEvent1()
     {
-        if(onStartCustomEvent1 != null)
+        if (onStartCustomEvent1 != null)
         {
             onStartCustomEvent1();
         }
@@ -158,7 +159,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomEvent2;
     public static void StartCustomEvent2()
     {
-        if(onStartCustomEvent2 != null)
+        if (onStartCustomEvent2 != null)
         {
             onStartCustomEvent2();
         }
@@ -167,7 +168,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomEvent3;
     public static void StartCustomEvent3()
     {
-        if(onStartCustomEvent3 != null)
+        if (onStartCustomEvent3 != null)
         {
             onStartCustomEvent3();
         }
@@ -175,7 +176,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomEvent4;
     public static void StartCustomEvent4()
     {
-        if(onStartCustomEvent4 != null)
+        if (onStartCustomEvent4 != null)
         {
             onStartCustomEvent4();
         }
@@ -184,7 +185,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomEvent5;
     public static void StartCustomEvent5()
     {
-        if(onStartCustomEvent5 != null)
+        if (onStartCustomEvent5 != null)
         {
             onStartCustomEvent5();
         }
@@ -192,7 +193,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomEvent6;
     public static void StartCustomEvent6()
     {
-        if(onStartCustomEvent6 != null)
+        if (onStartCustomEvent6 != null)
         {
             onStartCustomEvent6();
         }
@@ -200,7 +201,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomEvent7;
     public static void StartCustomEvent7()
     {
-        if(onStartCustomEvent7 != null)
+        if (onStartCustomEvent7 != null)
         {
             onStartCustomEvent7();
         }
@@ -208,7 +209,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartCustomEvent8;
     public static void StartCustomEvent8()
     {
-        if(onStartCustomEvent8 != null)
+        if (onStartCustomEvent8 != null)
         {
             onStartCustomEvent8();
         }
@@ -216,7 +217,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartSpaceCamera;
     public static void StartSpaceCamera()
     {
-        if(onStartSpaceCamera != null)
+        if (onStartSpaceCamera != null)
         {
             onStartSpaceCamera();
         }
@@ -224,7 +225,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onToogleSpaceParticles;
     public static void ToogleSpaceParticles()
     {
-        if(onToogleSpaceParticles != null)
+        if (onToogleSpaceParticles != null)
         {
             onToogleSpaceParticles();
         }
@@ -232,7 +233,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartIntroCamera;
     public static void StartIntroCamera()
     {
-        if(onStartIntroCamera != null)
+        if (onStartIntroCamera != null)
         {
             onStartIntroCamera();
         }
@@ -240,7 +241,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onEnableMixer;
     public static void EnableMixer()
     {
-        if(onEnableMixer != null)
+        if (onEnableMixer != null)
         {
             onEnableMixer();
         }
@@ -248,7 +249,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onDisableMixer;
     public static void DisableMixer()
     {
-        if(onDisableMixer != null)
+        if (onDisableMixer != null)
         {
             onDisableMixer();
         }
@@ -256,7 +257,7 @@ public class GlobalEventSystem : MonoBehaviour
     public static event ShowEvent onStartFireworks;
     public static void StartFireworks()
     {
-        if(onStartFireworks != null)
+        if (onStartFireworks != null)
         {
             onStartFireworks();
         }
@@ -266,9 +267,27 @@ public class GlobalEventSystem : MonoBehaviour
 
     public static Transform GetMainActiveCamera()
     {
-        if(onGetMainActiveCamera != null)
+        if (onGetMainActiveCamera != null)
             return onGetMainActiveCamera();
         else
             return null;
+    }
+    public static Action<int> onSelectTerrain;
+
+    public static void SelectTerrain(int terrainIndex)
+    {
+        if (onSelectTerrain != null)
+        {
+            onSelectTerrain(terrainIndex);
+        }
+    }
+    public static Action<int> onDeselectTerrain;
+
+    public static void DeselectTerrain(int terrainIndex)
+    {
+        if (onDeselectTerrain != null)
+        {
+            onDeselectTerrain(terrainIndex);
+        }
     }
 }
