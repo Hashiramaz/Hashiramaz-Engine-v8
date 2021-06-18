@@ -26,10 +26,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Project/Stages/Rock In Rio/RockInRio.unity
     guid: 4810bbc0bab06a74ab3d823117a1cd37
+  - enabled: 1
+    path: Assets/_Project/Stages/ClarasBirthday/ClaraBirthday.unity
+    guid: 1b3cf6d796f3e524da4af3fd7dffc808
   - enabled: 0
     path: Assets/_Project/Stages/Retrowave/RetroWave.unity
     guid: e763628e30c76cb48bd11e9be1cb15a5
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/Stages/Retrowave/RetroWave 1.unity
     guid: 942201249602648428a1e2301a3c680f
   - enabled: 0
