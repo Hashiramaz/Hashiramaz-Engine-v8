@@ -27,6 +27,12 @@ EditorBuildSettings:
     path: Assets/_Project/Stages/Rock In Rio/RockInRio.unity
     guid: 4810bbc0bab06a74ab3d823117a1cd37
   - enabled: 1
+    path: Assets/SimpleWebBrowser/Demo/web_browser.unity
+    guid: 9b3f1052fb351c34daa517cc8b00d4e0
+  - enabled: 0
+    path: Assets/SimpleWebBrowser/Demo/ui_browser.unity
+    guid: c3f7529f50a1c5449a3da685bfacb72f
+  - enabled: 0
     path: Assets/_Project/Stages/ClarasBirthday/ClaraBirthday.unity
     guid: 1b3cf6d796f3e524da4af3fd7dffc808
   - enabled: 0
