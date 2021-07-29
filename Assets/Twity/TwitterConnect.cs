@@ -21,16 +21,16 @@ public class TwitterConnect : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Debug.Log("Searching Tweets!");
+        // if (Input.GetKeyDown(KeyCode.S))
+        // {
+        //     Debug.Log("Searching Tweets!");
 
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters["q"] = "bbb";
-            parameters["count"] = 30.ToString(); ;
-            StartCoroutine(Twity.Client.Get("search/tweets", parameters, Callback));
+        //     Dictionary<string, string> parameters = new Dictionary<string, string>();
+        //     parameters["q"] = "bbb";
+        //     parameters["count"] = 30.ToString(); ;
+        //     StartCoroutine(Twity.Client.Get("search/tweets", parameters, Callback));
 
-        }
+        // }
     }
 
     void CallbackAuth(bool success)
