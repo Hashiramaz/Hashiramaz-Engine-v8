@@ -315,7 +315,7 @@ public class BttvEmoteInfo
     public string userId;
 }
 
-public class JsonHelper
+public static class JsonHelper
 {
     public static T[] GetJsonArray<T>(string json)
     {
@@ -329,6 +329,15 @@ public class JsonHelper
     {
         public T[] array;
     }
+
+      public static string ArrayToObject (string arrayString) {
+            if (arrayString.StartsWith ("[")) {
+                arrayString = "{\"items\":" + arrayString + "}";
+                return arrayString;
+            } else {
+                return arrayString;
+            }
+        }
 }
 
 [System.Serializable]
