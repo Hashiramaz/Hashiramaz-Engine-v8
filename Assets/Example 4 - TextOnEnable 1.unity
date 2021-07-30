@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 42840766}
   - component: {fileID: 42840765}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: TwitchConnect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -458,10 +458,10 @@ RectTransform:
   m_Father: {fileID: 903061074}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.5, y: 0}
-  m_SizeDelta: {x: -84.9, y: -506.8}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 2.5, y: 212.4}
+  m_SizeDelta: {x: 1835.1, y: 397.91412}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1911804839
 MonoBehaviour:
@@ -550,7 +550,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -13.483582, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1911804839}
     characterCount: 119

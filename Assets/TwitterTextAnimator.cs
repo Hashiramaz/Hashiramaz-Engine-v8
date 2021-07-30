@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Febucci.UI.Examples;
 using Febucci.UI;
 using Twity.DataModels.Responses;
 using Twity.DataModels.Core;
-public class TwitterTextAnimator : MonoBehaviour
+public class TwitterTextAnimator : MonoBehaviourSingleton<TwitterTextAnimator>
 {
     public TextAnimatorPlayer tanimPlayer;
 
