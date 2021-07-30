@@ -5,56 +5,66 @@ using Febucci.UI.Examples;
 using Febucci.UI;
 using Twity.DataModels.Responses;
 using Twity.DataModels.Core;
+using UnityEngine.Networking;
+using UnityEngine.UI;
+
 public class TwitterTextAnimator : MonoBehaviourSingleton<TwitterTextAnimator>
 {
     public TextAnimatorPlayer tanimPlayer;
 
     public List<Tweet> TweetList;
 
+    public string searchTerm;
+
+    public Image userImage;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-         if (Input.GetKeyDown(KeyCode.S))
-        {
-            Debug.Log("Searching Tweets!");
-            tanimPlayer.ShowText("");
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters["q"] = "olimpiadas";
-            parameters["count"] = 30.ToString(); ;
-            StartCoroutine(Twity.Client.Get("search/tweets", parameters, Callback));
 
-        }
-         if (Input.GetKeyDown(KeyCode.D))
-        {
-            ShowNextTweet();
-
-        }
     }
-     void Callback(bool success, string response)
+
+    public void SetSearchTerm(string term)
+    {
+        searchTerm = term;
+    }
+    public void SearchTweets()
+    {
+        Debug.Log("Searching Tweets!");
+        tanimPlayer.ShowText("");
+        Dictionary<string, string> parameters = new Dictionary<string, string>();
+        parameters["q"] = searchTerm;
+        parameters["count"] = 30.ToString(); ;
+        StartCoroutine(Twity.Client.Get("search/tweets", parameters, CallbackSearch));
+    }
+
+    void CallbackSearch(bool success, string response)
     {
         if (success)
         {
             Debug.Log(response);
-            
+
             SearchTweetsResponse tweetsResponse = JsonUtility.FromJson<SearchTweetsResponse>(response);
-            
+
             foreach (var tweet in tweetsResponse.statuses)
             {
-                
-            Debug.Log("------------------------------------------------------------------------------------------------");
-            Debug.Log("Tweet User: " + tweet.user.name);
-            Debug.Log("Tweet: " + tweet.text);
 
-            AddTweetToQueue(tweet);
-            } 
+                Debug.Log("------------------------------------------------------------------------------------------------");
+                Debug.Log("Tweet User: " + tweet.user.name);
+                Debug.Log("Tweet: " + tweet.text);
 
-           // tanimPlayer.ShowText(TweetList[0].text);
+                //AddTweetToQueue(tweet);
+
+                TweetsPanel.Instance.InstantiateNewTweetButton(tweet);
+            }
+
+            // tanimPlayer.ShowText(TweetList[0].text);
         }
         else
         {
@@ -75,9 +85,31 @@ public class TwitterTextAnimator : MonoBehaviourSingleton<TwitterTextAnimator>
         tanimPlayer.ShowText("");
         Tweet tweet = tweetQueue.Dequeue();
 
-        tanimPlayer.ShowText(tweet.user.name + "\n \n "+ tweet.text);
+        tanimPlayer.ShowText(tweet.user.name + "\n \n " + tweet.text);
+        SetTwitterUserImage(tweet.user.profile_image_url);
         //Show Tweet
     }
 
-    
+    public void SetTwitterUserImage(string imageURL)
+    {
+        StartCoroutine(SetImageByURLRoutine(imageURL));
+    }
+
+    IEnumerator SetImageByURLRoutine(string _imageURL)
+    {
+
+        UnityWebRequest request = UnityWebRequestTexture.GetTexture(_imageURL);
+        yield return request.SendWebRequest();
+        if (request.isNetworkError || request.isHttpError)
+            Debug.Log(request.error);
+        else
+        {            
+            Texture2D tex = ((DownloadHandlerTexture)request.downloadHandler).texture;
+            Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(tex.width / 2, tex.height / 2));
+            userImage.GetComponent<Image>().overrideSprite = sprite;
+
+        }
+
+    }
+
 }

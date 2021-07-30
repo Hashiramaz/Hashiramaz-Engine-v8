@@ -1,18 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Twity.DataModels.Core;
 
-public class TweetsPanel : MonoBehaviour
+public class TweetsPanel : MonoBehaviourSingleton<TweetsPanel>
 {
-    // Start is called before the first frame update
-    void Start()
+    public TweetButton tweetButtonPrefab;
+
+    
+
+    public void InstantiateNewTweetButton(Tweet tweet)
     {
+        TweetButton instantiated = Instantiate(tweetButtonPrefab,transform);
         
+        instantiated.SetTweet(tweet);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+    public void ClearTweets()
+    {         
+        foreach (var tweet in GetComponentsInChildren<TweetButton>())
+        {
+            Destroy(tweet.gameObject);
+        }
     }
 }
