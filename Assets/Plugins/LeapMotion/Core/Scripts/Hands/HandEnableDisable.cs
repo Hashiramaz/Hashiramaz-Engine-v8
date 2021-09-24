@@ -10,20 +10,24 @@ using UnityEngine;
 using System.Collections;
 using System;
 using Leap;
-
+using Lean.Gui;
 namespace Leap.Unity{
   public class HandEnableDisable : HandTransitionBehavior {
+    public LeanToggle handToggle;
     protected override void Awake() {
       base.Awake();
-      gameObject.SetActive(false);
+      //gameObject.SetActive(false);
+      handToggle.On = false;
     }
 
   	protected override void HandReset() {
-      gameObject.SetActive(true);
+      //gameObject.SetActive(true);
+      handToggle.On = true;
     }
 
     protected override void HandFinish() {
-      gameObject.SetActive(false);
+      //gameObject.SetActive(false);
+      handToggle.On = false;
     }
 
   }
