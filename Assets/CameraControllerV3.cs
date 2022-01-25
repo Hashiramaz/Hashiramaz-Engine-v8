@@ -10,6 +10,7 @@ public class CameraControllerV3 : MonoBehaviour
     public List<LeanToggle> cameras;
     public LeanToggle blackcamera;
     public Canvas cameraCanva;
+    public Canvas cameraCanva2;
     public int currentCameraSelected;
 
     public bool randomCamerasRuning;
@@ -35,6 +36,8 @@ public class CameraControllerV3 : MonoBehaviour
     public void SetRenderCamera(Camera camera)
     {
         cameraCanva.worldCamera = camera;
+        cameraCanva2.worldCamera = camera;
+        
     }
 
 

@@ -7,9 +7,11 @@ using Twity.DataModels.Responses;
 using Twity.DataModels.Core;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using Lean.Gui;
 
 public class TwitterTextAnimator : MonoBehaviourSingleton<TwitterTextAnimator>
 {
+    public LeanWindow textWindow;
     public TextAnimatorPlayer tanimPlayer;
 
     public List<Tweet> TweetList;
@@ -17,11 +19,12 @@ public class TwitterTextAnimator : MonoBehaviourSingleton<TwitterTextAnimator>
     public string searchTerm;
 
     public Image userImage;
-
+    
+    public bool showingTweet;
     // Start is called before the first frame update
     void Start()
     {
-
+        tanimPlayer.onTextShowed.AddListener(TurnOffTextAnimatorWindow);
     }
 
     // Update is called once per frame
@@ -78,17 +81,48 @@ public class TwitterTextAnimator : MonoBehaviourSingleton<TwitterTextAnimator>
         tweetQueue.Enqueue(tweet);
     }
 
-
+    public void TryShowNextTweet()
+    {
+        Debug.Log("Trying show next tweet: " + tweetQueue.Count);
+        if(tweetQueue.Count > 0 && !showingTweet)
+        {
+            ShowNextTweet();
+        }
+      
+    }
 
     public void ShowNextTweet()
     {
+
         tanimPlayer.ShowText("");
         Tweet tweet = tweetQueue.Dequeue();
 
         tanimPlayer.ShowText(tweet.user.name + "\n \n " + tweet.text);
         SetTwitterUserImage(tweet.user.profile_image_url);
+
+        textWindow.TurnOn();
+
+        showingTweet = true;
+       
         //Show Tweet
     }
+
+    public void TurnOffTextAnimatorWindow()
+    {
+        StartCoroutine(tryShowNextRoutine());
+        
+    }
+
+    IEnumerator tryShowNextRoutine()
+    {
+        yield return new WaitForSeconds(5f);
+        textWindow.TurnOff();
+
+        showingTweet = false;
+        yield return new WaitForSeconds(1f);
+        TryShowNextTweet();
+    }
+
 
     public void SetTwitterUserImage(string imageURL)
     {

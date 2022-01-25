@@ -52,8 +52,10 @@ public class TweetButton : MonoBehaviour
     public void SendTweetToQueue()
     {
         //Implement
+
+        Debug.Log("Sending Tweet To Queue");
         TwitterTextAnimator.Instance.AddTweetToQueue(tweet);
-        TwitterTextAnimator.Instance.ShowNextTweet();
+        TwitterTextAnimator.Instance.TryShowNextTweet();
         Destroy(gameObject);
     }
 
