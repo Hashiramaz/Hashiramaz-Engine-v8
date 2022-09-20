@@ -41,7 +41,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Project/Stages/Retrowave/RetroWave.unity
     guid: e763628e30c76cb48bd11e9be1cb15a5
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/Stages/Retrowave/RetroWave 1.unity
     guid: 942201249602648428a1e2301a3c680f
   - enabled: 0
@@ -51,20 +51,23 @@ EditorBuildSettings:
     path: Assets/_Project/Stages/StageTest/StageTest.unity
     guid: a111f5c73b9c0d14690ab256644010b9
   - enabled: 0
-    path: Assets/AgoraDemo/Demo+/MainScene.unity
-    guid: eadb1a9238f764e84a7034c35f016e56
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/AgoraDemo/Demo+/AppScreenShareScene.unity
-    guid: 4515f39c9112c4272a14a078069b78d5
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/AgoraDemo/Demo+/DesktopScreenShareScene.unity
-    guid: 769bdc0723fa446899e34b76d11c92d6
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/AgoraDemo/Demo+/One2OneScene.unity
-    guid: af091096027a64592854026bce332bca
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/AgoraDemo/Demo+/TranscodingScene.unity
-    guid: 7bb4d5d35cb3a4bc3a3ea85d0247a930
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/_Project/Stages/SpeedTest/speedtest.unity
+    guid: d6cd709cb3bafd14988345d930277e51
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 76461aa944798114a9397ca1a91fe9f2,
       type: 2}
