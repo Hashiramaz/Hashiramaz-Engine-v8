@@ -137,4 +137,14 @@ public class CameraControllerV3 : MonoBehaviour
     {
         timeToWaitBetweenCameras = time;
     }
+
+    public void ChangeToRandomCamera()
+    {
+        int RandomCameraToStart;
+
+        RandomCameraToStart = GetRandomFilteredCameras();
+        
+        ChooseCamera(RandomCameraToStart, true);
+
+    }
 }

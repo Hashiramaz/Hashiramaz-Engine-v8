@@ -1,6 +1,2 @@
-[uWC::Log][2022-09-27 23:07:41] Start
-[uWC::Err][2022-09-27 23:08:02] WindowManager::GetWindow => Window whose id is 42 does not exist.
-[uWC::Err][2022-09-27 23:08:02] WindowManager::GetWindow => Window whose id is 42 does not exist.
-[uWC::Err][2022-09-27 23:08:02] WindowManager::GetWindow => Window whose id is 43 does not exist.
-[uWC::Err][2022-09-27 23:08:02] WindowManager::GetWindow => Window whose id is 43 does not exist.
-[uWC::Log][2022-09-27 23:08:55] Stop
+[uWC::Log][2022-09-28 02:15:13] Start
+[uWC::Log][2022-09-28 02:16:21] Stop
